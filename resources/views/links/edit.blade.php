@@ -28,6 +28,7 @@
                 </span>
             @enderror
         </div>
+        <a href="{{ route('links.create') }}">Cancelar</a>
         <button type="submit">Editar</button>
     </form>
 </div>
