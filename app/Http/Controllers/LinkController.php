@@ -72,34 +72,14 @@ class LinkController extends Controller
     {
         // dump($link->toArray(), __METHOD__);
 
-        $sort = $link->sort;
-        $newSort = $sort - 1;
-
-        /** @var User $user */
-        $user = auth()->user();
-
-        $swapWith = $user->links()->where('sort', '=', $newSort)->first();
-
-        // dump($link->toArray(), $sort, $newSort, $swapWith->toArray());
-
-        $link->fill(['sort' => $newSort])->save();
-        $swapWith->fill(['sort' => $sort])->save();
+        $link->moveUp();
 
         return back();
     }
 
     public function down(Link $link)
     {
-        $sort = $link->sort;
-        $newSort = $sort + 1;
-
-        /** @var User $user */
-        $user = auth()->user();
-
-        $swapWith = $user->links()->where('sort', '=', $newSort)->first();
-
-        $link->fill(['sort' => $newSort])->save();
-        $swapWith->fill(['sort' => $sort])->save();
+        $link->moveDown();
 
         return back();
     }
