@@ -43,6 +43,9 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
+        // policy no metodo (estou utilizando na route)
+        // $this->authorize('update', $link);
+
         return view('links.edit', compact('link'));
     }
 
