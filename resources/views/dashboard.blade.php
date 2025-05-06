@@ -8,6 +8,7 @@
         </div>
     @endif
 
+    <a href="{{ route('profile') }}">Atualizar perfil</a>
     <a href="{{ route('links.create') }}">Criar novo link</a>
 
     <ul>
