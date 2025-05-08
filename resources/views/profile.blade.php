@@ -1,8 +1,13 @@
 <div>
     <h1>Profile</h1>
-    <form action="{{ route('profile') }}" method="POST">
+    <form action="{{ route('profile') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+        <div>
+            <img src="/storage/{{ $user->photo }}" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%;" />
+            <label for="photo">Foto de perfil:</label>
+            <input type="file" name="photo" />
+        </div>
         <div>
             <label for="name">Nome:</label>
             <input name="name" value="{{ old('name', $user->name) }}" />
